@@ -71,7 +71,7 @@ function updateBackendStatusBadge(isOnline, version) {
       dot.style.boxShadow = '0 0 8px #22C55E';
     }
     text.textContent = `🟢 ML MODEL ACTIVE (FastAPI v${version || '0.1.0'})`;
-    badge.title = 'Real trained XGBoost & Scikit-Learn models are serving live predictions at http://localhost:8000';
+    badge.title = `Real trained XGBoost & Scikit-Learn models are serving live predictions at ${window.varshaApi.baseUrl}`;
   } else {
     badge.style.background = '#FEF3C7';
     badge.style.color = '#B45309';
@@ -81,7 +81,7 @@ function updateBackendStatusBadge(isOnline, version) {
       dot.style.boxShadow = '0 0 8px #F59E0B';
     }
     text.textContent = '🟡 DEMO MODE (ML Backend Disconnected)';
-    badge.title = 'FastAPI backend is offline. Run "uvicorn app.main:app --port 8000" to connect real trained models.';
+    badge.title = `FastAPI backend is offline at ${window.varshaApi.baseUrl}. Start your backend service to connect real trained models.`;
   }
 }
 

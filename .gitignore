@@ -5,15 +5,27 @@ js/config.js
 .env
 .env.local
 .env.*.local
+backend/.env
+backend/.env.local
+*.pem
+*.key
 
 # Python Backend & Virtual Environments
 backend/.venv/
 backend/venv/
+.venv/
+venv/
 backend/__pycache__/
 __pycache__/
 *.py[cod]
 *$py.class
-backend/models/*.joblib
+*.egg-info/
+dist/
+build/
+
+# Node / Frontend temporary files
+node_modules/
+npm-debug.log*
 
 # Operating System Files
 .DS_Store
@@ -23,3 +35,9 @@ desktop.ini
 # IDE & Editor files
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+
+# Local temporary logs
+*.log
+scratch/

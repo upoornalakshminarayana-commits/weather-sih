@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: varshaai-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: OPEN_METEO_BASE_URL
+        value: https://api.open-meteo.com/v1
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: TOMORROW_IO_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false

@@ -902,7 +902,7 @@
           </div>
           <div id="featureImportanceContainer">
             <div style="font-size:0.85rem; color:#64748B;">
-              Connect to FastAPI backend at http://localhost:8000 to stream live feature importance weights from trained models.
+              Connect to the FastAPI ML backend to stream live feature importance weights from trained models.
             </div>
           </div>
         </div>
@@ -1257,7 +1257,14 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-
+<script>
+  window.VARSHA_CONFIG = window.VARSHA_CONFIG || {
+    BACKEND_URL: window.__API_BASE_URL__ || "http://localhost:8000",
+    CARTO_API_KEY: "",
+    OPENWEATHERMAP_API_KEY: "",
+    TOMORROW_IO_API_KEY: ""
+  };
+</script>
 <script src="js/config.js"></script>
 <script src="js/varshaDataEngine.js"></script>
 <script src="js/varshaApi.js"></script>

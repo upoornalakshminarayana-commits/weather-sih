@@ -35,8 +35,10 @@ class InferenceEngine:
         self.model_version = {}
         self.is_loaded = False
 
-    def load_models(self) -> bool:
+    def load_models(self, models_dir: Optional[str] = None) -> bool:
         """Load all serialized .joblib models and metadata."""
+        if models_dir:
+            self.models_dir = os.path.abspath(models_dir)
         try:
             regime_path = os.path.join(self.models_dir, "regime_classifier.joblib")
             if os.path.exists(regime_path):

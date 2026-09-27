@@ -179,7 +179,7 @@ class VarshaJourney {
     container.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; padding:8px 14px; background:#FEF3C7; border:1px solid #FDE68A; border-radius:8px;">
         <span style="font-size:0.82rem; font-weight:700; color:#B45309;">
-          <i data-lucide="alert-circle" style="width:14px; height:14px; display:inline;"></i> DEMO MODE (FastAPI backend offline) — Start backend at localhost:8000 for live ML inference.
+          <i data-lucide="alert-circle" style="width:14px; height:14px; display:inline;"></i> DEMO MODE (FastAPI backend offline) — Connect to ${(window.varshaApi && window.varshaApi.baseUrl) || 'backend'} for live ML inference.
         </span>
         <span class="scientific-badge" style="background:#B45309; color:#FFF;">PROTOTYPE DEMO</span>
       </div>

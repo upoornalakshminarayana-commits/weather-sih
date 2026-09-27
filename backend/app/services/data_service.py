@@ -19,15 +19,29 @@ class DataService:
         self._load()
 
     def _load(self):
+        candidate_paths = [
+            settings.DATASET_PATH,
+            os.path.join(settings.DATA_DIR, "SIH26080_10000_training_dataset.csv"),
+            os.path.join(os.path.dirname(settings.BASE_DIR), "SIH26080_10000_training_dataset.csv"),
+            os.path.join(os.path.dirname(settings.BASE_DIR), "backend", "data", "SIH26080_10000_training_dataset.csv")
+        ]
+        chosen_path = None
+        for p in candidate_paths:
+            if p and os.path.exists(p):
+                chosen_path = p
+                break
+        if not chosen_path:
+            chosen_path = settings.DATASET_PATH
+
         try:
-            self.df = load_dataset(settings.DATASET_PATH)
+            self.df = load_dataset(chosen_path)
             # Index by record_id
             for _, row in self.df.iterrows():
                 rec_id = str(row.get("record_id", f"REC_{len(self.records_dict)}"))
                 self.records_dict[rec_id] = row.to_dict()
             self.is_loaded = True
         except Exception as e:
-            print(f"DataService: Warning, could not load dataset from {settings.DATASET_PATH}: {e}")
+            print(f"DataService: Warning, could not load dataset from {chosen_path}: {e}")
             self.is_loaded = False
 
     def get_record(self, record_id: str) -> Optional[Dict[str, Any]]:

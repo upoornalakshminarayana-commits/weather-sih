@@ -15,7 +15,7 @@ from app.api import health, forecast, regime, risk, verification, model, data_qu
 async def lifespan(app: FastAPI):
     # Load all trained models upon startup
     print(f"Loading trained models from {settings.MODELS_DIR}...")
-    loaded = inference_engine.load_models()
+    loaded = inference_engine.load_models(settings.MODELS_DIR)
     if loaded:
         print("All models successfully loaded and ready for inference.")
     else:
@@ -33,7 +33,7 @@ app = FastAPI(
 # CORS Configuration for frontend integration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.ALLOWED_ORIGINS,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -99,6 +99,10 @@ def api_info():
         "status": "online"
     }
 
+@app.get("/api/health")
+def api_health():
+    return health.health_check()
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host=settings.HOST, port=settings.PORT, reload=False)

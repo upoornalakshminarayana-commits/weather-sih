@@ -14,10 +14,10 @@ router = APIRouter(prefix="/api/live-weather", tags=["Live Weather"])
 def get_live_weather(
     lat: float = Query(17.68, description="Latitude (°N)"),
     lon: float = Query(83.21, description="Longitude (°E)"),
-    provider: str = Query("openweathermap", description="API provider: 'openweathermap' or 'tomorrow'")
+    provider: str = Query("openmeteo", description="API provider: 'openmeteo' (default, free), 'openweathermap', or 'tomorrow'")
 ):
     """
-    Fetch real-time atmospheric conditions from OpenWeatherMap or Tomorrow.io
+    Fetch real-time atmospheric conditions from Open-Meteo, OpenWeatherMap, or Tomorrow.io
     and immediately execute the trained XGBoost ML pipeline for live regime detection
     and regime-aware post-processing!
     """
@@ -29,7 +29,7 @@ def get_live_weather(
 @router.get("/city/{city_name}")
 def get_live_city_weather(
     city_name: str,
-    provider: str = Query("openweathermap", description="API provider: 'openweathermap' or 'tomorrow'")
+    provider: str = Query("openmeteo", description="API provider: 'openmeteo', 'openweathermap', or 'tomorrow'")
 ):
     """Fetch live weather & AI regime classification for a specific Indian city."""
     try:

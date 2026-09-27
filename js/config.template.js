@@ -1,18 +1,23 @@
 /**
- * VARSHAAI — Environment Configuration Template
+ * VARSHAAI — Frontend Runtime Configuration Template
  * 
  * Instructions:
- * 1. Copy this file to `js/config.js`
- * 2. Add your CARTO Basemaps API key and weather telemetry credentials
- * 3. Never commit `js/config.js` to Git (it is protected via .gitignore)
+ * 1. Copy this file to `js/config.js` for local development or static hosting
+ * 2. Set BACKEND_URL to your deployed FastAPI backend URL (e.g. https://varshaai-api.onrender.com)
+ * 3. Never commit `js/config.js` containing real secrets to Git (it is protected via .gitignore)
  */
 
 window.VARSHA_CONFIG = {
-  // CARTO Basemaps Raster API Key
-  // Obtain from https://app.carto.com/ -> Developers -> API Keys
-  CARTO_API_KEY: "YOUR_CARTO_API_KEY_HERE",
+  // Public HTTPS URL of the deployed FastAPI Python backend
+  // In development: "http://localhost:8000"
+  // In production: "https://your-backend-app.onrender.com"
+  BACKEND_URL: "http://localhost:8000",
 
-  // Live Weather Telemetry Providers
-  OPENWEATHERMAP_API_KEY: "YOUR_OPENWEATHERMAP_API_KEY_HERE",
-  TOMORROW_IO_API_KEY: "YOUR_TOMORROW_IO_API_KEY_HERE"
+  // CARTO Basemaps Raster API Key (optional - works without key)
+  CARTO_API_KEY: "",
+
+  // Live Weather Telemetry Providers (Optional - backend proxies with server-side env vars)
+  // Open-Meteo works with zero keys and zero configuration.
+  OPENWEATHERMAP_API_KEY: "",
+  TOMORROW_IO_API_KEY: ""
 };
