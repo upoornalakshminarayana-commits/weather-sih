@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0-prototype",
+  "trained_at": "2026-09-21T06:53:21.612287",
+  "dataset": "SIH26080_10000_training_dataset.csv",
+  "status": "prototype_trained",
+  "frameworks": [
+    "scikit-learn",
+    "xgboost",
+    "fastapi"
+  ],
+  "models": [
+    "regime_classifier.joblib",
+    "global_corrector.joblib",
+    "active_monsoon_corrector.joblib",
+    "break_monsoon_corrector.joblib",
+    "monsoon_low_depression_corrector.joblib",
+    "coastal_rainfall_corrector.joblib",
+    "orographic_rainfall_corrector.joblib",
+    "western_disturbance_corrector.joblib",
+    "heavy_rain_classifier.joblib"
+  ]
+}

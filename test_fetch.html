@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Fetch</title></head>
+<body>
+<div id="result">Testing...</div>
+<script>
+fetch('./SIH26080_10000_training_dataset.csv')
+  .then(res => res.text())
+  .then(text => {
+    document.getElementById('result').textContent = 'SUCCESS: ' + text.substring(0, 50);
+  })
+  .catch(err => {
+    document.getElementById('result').textContent = 'ERROR: ' + err.message;
+  });
+</script>
+</body>
+</html>

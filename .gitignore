@@ -1,0 +1,25 @@
+# VARSHAAI — Git Ignore Rules
+
+# Local API keys and environment configurations (DO NOT COMMIT SECRETS)
+js/config.js
+.env
+.env.local
+.env.*.local
+
+# Python Backend & Virtual Environments
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
+backend/models/*.joblib
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor files
+.vscode/
+.idea/

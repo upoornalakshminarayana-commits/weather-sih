@@ -1,0 +1,36 @@
+{
+  "regime_classifier": {
+    "temperature_c": 0.029201330617070198,
+    "relative_humidity_pct": 0.2920137941837311,
+    "surface_pressure_hpa": 0.12977993488311768,
+    "wind_u_ms": 0.03761269524693489,
+    "wind_v_ms": 0.037164364010095596,
+    "nwp_rainfall_mm": 0.060287728905677795,
+    "ensemble_mean_mm": 0.12253527343273163,
+    "ensemble_std_mm": 0.03862903639674187,
+    "ensemble_min_mm": 0.04466807469725609,
+    "ensemble_max_mm": 0.04635487124323845,
+    "latitude": 0.030982887372374535,
+    "longitude": 0.029692567884922028,
+    "elevation_m": 0.028966544196009636,
+    "coastal_distance_km": 0.036295924335718155,
+    "lead_time_hours": 0.03581499308347702
+  },
+  "rainfall_corrector": {
+    "nwp_rainfall_mm": 0.3723,
+    "ensemble_mean_mm": 0.289,
+    "ensemble_std_mm": 0.0236,
+    "ensemble_min_mm": 0.0759,
+    "ensemble_max_mm": 0.0737,
+    "temperature_c": 0.0129,
+    "relative_humidity_pct": 0.0174,
+    "surface_pressure_hpa": 0.0143,
+    "wind_u_ms": 0.0173,
+    "wind_v_ms": 0.0154,
+    "latitude": 0.0192,
+    "longitude": 0.0166,
+    "elevation_m": 0.0186,
+    "coastal_distance_km": 0.0185,
+    "lead_time_hours": 0.0153
+  }
+}
