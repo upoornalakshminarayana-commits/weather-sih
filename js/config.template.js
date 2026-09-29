@@ -11,7 +11,7 @@ window.VARSHA_CONFIG = {
   // Public HTTPS URL of the deployed FastAPI Python backend
   // In development: "http://localhost:8000"
   // In production: "https://your-backend-app.onrender.com"
-  BACKEND_URL: "http://localhost:8000",
+  BACKEND_URL: "https://weather-sih-backend.onrender.com",
 
   // CARTO Basemaps Raster API Key (optional - works without key)
   CARTO_API_KEY: "",

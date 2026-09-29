@@ -20,9 +20,9 @@ class VarshaApi {
       // 3. Check environment injection objects
       const envUrl = (typeof window !== 'undefined' && (
         queryUrl ||
+        (window.VARSHA_CONFIG && window.VARSHA_CONFIG.BACKEND_URL) ||
         window.__API_BASE_URL__ ||
-        window.BACKEND_URL ||
-        (window.VARSHA_CONFIG && window.VARSHA_CONFIG.BACKEND_URL)
+        window.BACKEND_URL
       )) || null;
 
       if (envUrl) {
@@ -32,10 +32,10 @@ class VarshaApi {
         if (window.location.port === '8000') {
           this.baseUrl = window.location.origin;
         } else {
-          this.baseUrl = 'http://localhost:8000';
+          this.baseUrl = 'https://weather-sih-backend.onrender.com';
         }
       } else {
-        this.baseUrl = 'http://localhost:8000';
+        this.baseUrl = 'https://weather-sih-backend.onrender.com';
       }
     }
 

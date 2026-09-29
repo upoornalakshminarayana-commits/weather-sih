@@ -112,7 +112,7 @@ class VarshaDataEngine {
     // 2. If opened via file:// or another port, try fetching from backend if active
     if (!success) {
       try {
-        const backendUrl = (window.varshaApi && window.varshaApi.baseUrl) || 'http://localhost:8000';
+        const backendUrl = (window.varshaApi && window.varshaApi.baseUrl) || (window.VARSHA_CONFIG && window.VARSHA_CONFIG.BACKEND_URL) || 'https://weather-sih-backend.onrender.com';
         const backendCsvRes = await fetch(`${backendUrl}/SIH26080_10000_training_dataset.csv`);
         if (backendCsvRes.ok) {
           const csvText = await backendCsvRes.text();
